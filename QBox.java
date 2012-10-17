@@ -3,6 +3,10 @@
  * @version     Version 1
  * @since       1.6
  */
+
+import java.awt.Graphics2D;
+import java.awt.Color;
+
 public class QBox
 {
     private double x, y;
@@ -114,38 +118,62 @@ public class QBox
     }
 
     /**
-     * returns the object's left x coordinate, is used for collision detection checking
+     * returns the object's left x coordinate,
+     * is used for collision detection checking
      * @return the object's left x coordinate
      */
-    public double getLeftX()
+    public int getLeftX()
     {
-        return this.x;
+        return (int)this.x;
     }
 
     /**
-     * returns the object's right x coordinate, is used for collision detection checking
+     * returns the object's right x coordinate,
+     * is used for collision detection checking
      * @return the object's right x coordinate(which is x+widht)
      */
-    public double getRightX()
+    public int getRightX()
     {
-        return (this.x+this.width);
+        return (int)(this.x+this.width);
     }
 
     /**
-     * returns the object's top y coordinate, is used for collision detection checking
+     * returns the object's top y coordinate,
+     * is used for collision detection checking
      * @return the object's top y coordinate
      */
-    public double getTopY()
+    public int getTopY()
     {
-        return this.y;
+        return (int)this.y;
     }
 
     /**
-     * returns the object's bottom y coordinate, is used for collision detection checking
+     * returns the object's bottom y coordinate,
+     * is used for collision detection checking
      * @return the object's bottom y coordinate(which is y+height)
      */
-    public double getBottomY()
+    public int getBottomY()
     {
-        return (this.y+this.height);
+        return (int)(this.y+this.height);
+    }
+
+    /**
+     * Draws the box into to the graphics passed,
+     * box outline will be black color
+     * @param g graphics where the box will be drawn into
+     */
+    public void drawBox(Graphics2D g)
+    {
+        g.setColor(Color.BLACK);
+        g.drawRect(this.getX(), this.getY(), this.width, this.height);
+    }
+
+    /**
+     * Same as drawBox
+     * @param g graphics where the box will be drawn into
+     */
+    public void draw(Graphics2D g)
+    {
+        this.drawBox(g);
     }
 }

@@ -1,1 +1,1 @@
-Game is there at 60 frames, and box class is done.
+Completed bounding box class and tested..

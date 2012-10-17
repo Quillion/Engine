@@ -1,3 +1,9 @@
+/**
+ * @author      Edgar Quillion <edgarquill@gmail.com>
+ * @version     Version 1
+ * @since       1.6
+ */
+
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.*;
@@ -231,6 +237,7 @@ public class Main implements Runnable
     public Main()
     {
         // REMOVE ThIS If YOU DO NOT WANT TO ASK FOR SCREEN MODES
+        /* No full screen asking anymore, this annoys me
         int answer = JOptionPane.showConfirmDialog(null, "Do you want to play in full screen", "Full screen?", 0);
         if(answer == 0)
         {
@@ -244,6 +251,7 @@ public class Main implements Runnable
         {
             System.exit(0);
         }
+        */
 
         // SET UP THE WINDOW AND GRAPHICS
         GraphicsEnvironment graphicsEnvironment = GraphicsEnvironment.getLocalGraphicsEnvironment();
