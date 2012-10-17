@@ -7,6 +7,9 @@
 import java.awt.Graphics2D;
 import java.awt.Color;
 
+/**
+ * Quillion Box
+ */
 public class QBox
 {
     private double x, y;

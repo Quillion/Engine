@@ -7,6 +7,9 @@
 import java.awt.Graphics2D;
 import java.awt.Color;
 
+/**
+ * Bounding Box
+ */
 public class QBBox extends QBox
 {
     private int HOffset, VOffset;

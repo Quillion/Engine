@@ -12,14 +12,14 @@ public class Game
 {
     private int WIDTH, HEIGHT;
 
-    private QBBox box;
+    private QBMBox box;
 
     public Game(int WIDTH, int HEIGHT)
     {
         this.WIDTH = WIDTH;
         this.HEIGHT = HEIGHT;
 
-        box = new QBBox();
+        box = new QBMBox();
         box.setX(10);
         box.setY(10);
         box.setWidth(100);
