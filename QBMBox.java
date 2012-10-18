@@ -4,9 +4,9 @@
  * @since       1.6
  */
 
-import java.awt.Graphics2D;
-import java.awt.Color;
-
+/**
+ * Bounding box with vector qualities
+ */
 public class QBMBox extends QBBox
 {
     private double xVector, yVector;
