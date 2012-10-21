@@ -18,7 +18,7 @@ public class QEngine
      * Will check movement and gravity
      * @param character moving object whose vectors need to be upgraded
      */
-    public static void PreUpdate(QMControls character)
+    public static void preUpdate(QMControls character)
     {
         if(character.getRight())
         {
@@ -56,7 +56,7 @@ public class QEngine
      * Will check movement and gravity
      * @param character moving object whose vectors need to be upgraded
      */
-    public static void PreUpdate(QBMControls character)
+    public static void preUpdate(QBMControls character)
     {
         if(character.getRight())
         {

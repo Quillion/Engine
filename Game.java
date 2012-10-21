@@ -10,6 +10,7 @@ import java.awt.Graphics2D;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
+import java.awt.event.KeyEvent;
 
 public class Game
 {
@@ -64,6 +65,15 @@ public class Game
         box.setY(150);
         box.setWidth(30);
         box.setHeight(30);
+        box.setGravity(1);
+        box.setMaxSpeed(5);
+        box.setJump(17);
+        box.setAcceleration(0.7);
+        box.setGroundFriction(3);
+        box.setAirFriction(2);
+        box.setLeftKey(KeyEvent.VK_LEFT);
+        box.setRightKey(KeyEvent.VK_RIGHT);
+        box.setJumpKey(KeyEvent.VK_UP);
     }
 
     public void draw(Graphics2D g)
@@ -80,14 +90,50 @@ public class Game
 
     public void update()
     {
+        QEngine.preUpdate(box);
+        // character is always falling until proven otherwise
+        box.setStanding(false);
+        for(int i = 0; i < platforms.size(); i++)
+        {
+            int vert = QEngine.verticalCollision(box, platforms.get(i));
+            int hort = QEngine.horizontalCollision(box, platforms.get(i));
+
+            if(hort == QConstants.RIGHT)
+            {
+                box.setRight(false);
+                box.setX(platforms.get(i).getLeftX() - box.getWidth());
+                box.setXVector(0);
+            }
+            else if(hort == QConstants.LEFT)
+            {
+                box.setLeft(false);
+                box.setX(platforms.get(i).getRightX());
+                box.setXVector(0);
+            }
+
+            if(vert == QConstants.UP)
+            {
+                box.setY(platforms.get(i).getBottomY());
+                box.setYVector(0);
+            }
+            else if(vert == QConstants.DOWN)
+            {
+                box.setStanding(true);
+                box.setY(platforms.get(i).getTopY()-box.getHeight());
+                box.setYVector(0);
+            }
+        }
+        QEngine.postUpdate(box);
     }
 
     public void keyPressed(KeyEvent e)
     {
+        QEngine.keyPressed(e.getKeyCode(), box);
     }
 
     public void keyReleased(KeyEvent e)
     {
+        QEngine.keyReleased(e.getKeyCode(), box);
     }
 
     public void mouseEntered(MouseEvent e) 
