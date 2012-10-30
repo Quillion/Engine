@@ -280,12 +280,14 @@ public class Main implements Runnable
 
         // CREATE NEW JPanel WITH SPECIFIED WIDTH AND HEIGHT
         JPanel panel = (JPanel) frame.getContentPane();
-        panel.setPreferredSize(new Dimension(WIDTH, HEIGHT));
+        // I had to add the -9 to readjust window size
+        panel.setPreferredSize(new Dimension(WIDTH-9, HEIGHT-9));
         panel.setLayout(null);
         // CREATE A Canvas INSIDE JPanel WITH SPECIFIED WIDTH AND HEIGHT
         canvas = new Canvas();
-        //canvas.setBounds(0, 0, WIDTH, HEIGHT);
-        canvas.setBounds(bounds);
+        // once again I add 1 because java is stupid that's why
+        canvas.setBounds(0, 0, WIDTH+1, HEIGHT+1);
+        //canvas.setBounds(bounds);
         canvas.setIgnoreRepaint(true);
 
         panel.add(canvas);

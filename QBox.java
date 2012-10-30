@@ -103,6 +103,15 @@ public class QBox
     }
 
     /**
+     * Increments the object's width by a set amount
+     * @param amount how much to increment this object's width by
+     */
+    public void incrementWidth(int amount)
+    {
+        this.width += amount;
+    }
+
+    /**
      * Sets the height value to whatever you choose to
      * @param height the value to which object's height will be set to
      */
@@ -118,6 +127,15 @@ public class QBox
     public int getHeight()
     {
         return this.height;
+    }
+
+    /**
+     * Increments the object's height by a set amount
+     * @param amount how much to increment this object's height by
+     */
+    public void incrementHeight(int amount)
+    {
+        this.height += amount;
     }
 
     /**
